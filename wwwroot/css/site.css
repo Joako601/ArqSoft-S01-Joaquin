@@ -574,3 +574,12 @@ body {
     display: inline-block; 
     transition: color 0.3s ease;
 }
+
+.border-gold-light {
+    border-color: #b5a478 !important;
+}
+
+.text-gold-active {
+    color: #b5a478;
+    font-weight: bold;
+}

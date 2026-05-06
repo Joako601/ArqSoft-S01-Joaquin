@@ -15,6 +15,21 @@ namespace Catalogo.Controllers
 			new Item {
 				Id = 2, Platillo = "Torta de Asado", Categoria = "Especialidad",
 				Precio = 45.00m, Ingredientes = "Cerdo", Descripcion = "Con pan francés local."
+			},
+			new Item {
+				Id = 3, Platillo = "Sopa de Lima", Categoria = "Entrada",
+				Precio = 65.00m, Ingredientes = "Pollo, lima yucateca, tortilla frita",
+				Descripcion = "Caldo ligero sazonado con la característica lima de la región y tiras crujientes."
+			},
+			new Item {
+				Id = 4, Platillo = "Queso Relleno", Categoria = "Almuerzo",
+				Precio = 120.00m, Ingredientes = "Queso de bola, picadillo, kol",
+				Descripcion = "Queso Edam holandés relleno de picadillo de cerdo y bañado en salsa blanca (kol)."
+			},
+			new Item {
+				Id = 5, Platillo = "Salbutes", Categoria = "Cena",
+				Precio = 17.00m, Ingredientes = "Pavo, lechuga, aguacate",
+				Descripcion = "Tortilla suave y esponjosa con carne de pavo deshebrada y verduras frescas."
 			}
 		};
 

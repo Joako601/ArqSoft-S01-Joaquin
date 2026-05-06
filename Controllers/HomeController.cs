@@ -31,5 +31,10 @@ namespace Catalogo.Controllers
 			// Esta vista es principalmente informativa, así que no requiere un modelo complejo por ahora.
 			return View();
 		}
+
+		public IActionResult Ubicacion()
+		{
+			return View();
+		}
 	}
 }
