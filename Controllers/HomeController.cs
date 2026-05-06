@@ -8,7 +8,11 @@ namespace Catalogo.Controllers
 	{
 		public IActionResult Index()
 		{
-			return View();
+			// Ahora toma los datos de la lista _menu que contiene tus platillos
+			// Usamos TakeLast(3) para que el inicio siempre sea dinámico
+			var itemsParaHome = CatalogoController._menu.TakeLast(3).ToList();
+
+			return View(itemsParaHome);
 		}
 
 		public IActionResult Privacy()
@@ -20,6 +24,12 @@ namespace Catalogo.Controllers
 		public IActionResult Error()
 		{
 			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+		}
+
+		public IActionResult Historia()
+		{
+			// Esta vista es principalmente informativa, así que no requiere un modelo complejo por ahora.
+			return View();
 		}
 	}
 }

@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Nuestra Historia - Tía Caro";
+}
+
+<div class="container py-5">
+    
+    <div class="text-center mb-5 fade-in">
+        <p class="text-uppercase mb-2" style="letter-spacing: 5px; color: #b5a478; font-size: 0.9rem;">Desde el corazón de Yucatán</p>
+        <h1 class="display-3 welcome-title">Nuestra Historia</h1>
+        <div class="divider-gold"></div>
+    </div>
+
+    
+    <div class="row align-items-center mb-5 py-4 card-animate">
+        <div class="col-md-6 px-lg-5">
+            <h2 class="section-subtitle mb-4">El Legado de Tía Caro</h2>
+            <p class="text-muted lead-custom">
+                Todo comenzó en una pequeña cocina de <strong>San Pedro Uxmal</strong>, donde el aroma del achiote y la leña marcaban el inicio de cada jornada.
+            </p>
+            <p class="text-muted">
+                Tía Caro no solo cocinaba; ella preservaba secretos familiares que han pasado de generación en generación. Su obsesión por el detalle y el respeto a los ingredientes locales convirtieron sus antojitos en una leyenda de la zona.
+            </p>
+        </div>
+        <div class="col-md-6 mt-4 mt-md-0">
+            <div class="img-container shadow">
+                <img src="https://images.unsplash.com/photo-1505253149613-112d21d9f6a9?q=80&w=800&auto=format&fit=crop" alt="Cocina tradicional">
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="row align-items-center mb-5 py-4 card-animate flex-md-row-reverse">
+        <div class="col-md-6 px-lg-5">
+            <h2 class="section-subtitle mb-4">Ingredientes de Nuestra Tierra</h2>
+            <p class="text-muted">
+                Creemos que la calidad no es negociable. Por eso, seguimos colaborando con productores locales de Mérida para asegurar que cada naranja agria, cada chile habanero y cada grano de maíz mantenga la esencia de Yucatán.
+            </p>
+            <blockquote class="blockquote-custom">
+                "La cocina es el lenguaje que nos conecta con nuestras raíces."
+            </blockquote>
+        </div>
+        <div class="col-md-6 mt-4 mt-md-0">
+            <div class="img-container shadow">
+                <img src="https://images.unsplash.com/photo-1516824467205-aba65913550e?q=80&w=800&auto=format&fit=crop" alt="Ingredientes yucatecos">
+            </div>
+        </div>
+    </div>
+
+   
+    <div class="container py-5 mt-5">
+        <div class="text-center py-5 fade-in">
+            <div class="divider-gold mb-4"></div>
+            <h3 style="font-family: 'Playfair Display', serif; font-style: italic; margin-bottom: 30px;">¿Te gustaría probar nuestra tradición?</h3>
+        
+            <div class="d-flex justify-content-center align-items-center gap-3">
+                
+                <a asp-controller="Home" asp-action="Index" class="btn btn-hero-secondary">
+                    Volver al Inicio
+                </a>
+                
+                <a asp-controller="Catalogo" asp-action="Index" class="btn btn-hero-primary">
+                    Ver el Menú
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

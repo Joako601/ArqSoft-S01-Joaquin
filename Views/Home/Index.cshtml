@@ -1,8 +1,80 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<Catalogo.Models.Item>
+
+@{
+    ViewData["Title"] = "Inicio - Tía Caro";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container-fluid bg-white hero-section">
+    <div class="text-center">
+        <p class="text-uppercase mb-2" style="letter-spacing: 5px; color: #b5a478; font-size: 0.9rem;">
+            Tradición Yucateca
+        </p>
+        <h1 class="display-1 welcome-title">Bienvenido</h1>
+        
+        <div class="divider-gold"></div>
+        
+        <p class="text-uppercase mb-5" style="letter-spacing: 3px; color: #666; font-size: 0.85rem;">
+            Antojitos • San Pedro Uxmal
+        </p>
+
+        <div class="d-flex justify-content-center align-items-center gap-2">
+           
+            <a asp-controller="Catalogo" asp-action="Index" class="btn btn-hero-primary">
+                Explorar el Menú
+            </a>
+            
+            <a asp-controller="Home" asp-action="Historia" class="btn btn-hero-secondary">
+                Nuestra Historia
+            </a>
+        </div>
+    </div>
 </div>
+
+<section class="py-5" style="background-color: #faf9f6;">
+    <div class="container py-4">
+        <div class="text-center mb-5">
+            <hr class="divider-small">
+            <h2 class="section-subtitle">Sugerencias del Día</h2>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            @if (Model != null && Model.Any())
+            {
+                int delay = 1;
+                foreach (var item in Model)
+                {
+                    <div class="col-md-4 card-animate" style="animation-delay: @(delay * 0.2)s">
+                        <div class="card h-100 border-0 bg-transparent text-center item-card">
+                            <div class="img-container shadow-sm mb-4">
+                                
+                                <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=600&auto=format&fit=crop"
+                                     alt="@item.Platillo">
+                                <div class="price-tag">$@item.Precio</div>
+                            </div>
+                            
+                            <div class="card-body p-0">
+                                <span style="color: #b5a478; font-size: 0.65rem; letter-spacing: 2px; font-weight: bold; text-transform: uppercase;">
+                                    @item.Categoria
+                                </span>
+                                <h4 class="mt-2" style="font-family: 'Playfair Display', serif;">@item.Platillo</h4>
+                                <p class="text-muted small px-4 mb-3">@item.Descripcion</p>
+                                
+                                <a asp-controller="Catalogo" asp-action="Detalle" asp-route-id="@item.Id"
+                                       class="btn-detalle-gold">
+                                    Ver Detalle
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    delay++;
+                }
+            }
+            else
+            {
+                <div class="col-12 text-center">
+                    <p class="text-muted italic">Preparando las delicias del día...</p>
+                </div>
+            }
+        </div>
+    </div>
+</section>

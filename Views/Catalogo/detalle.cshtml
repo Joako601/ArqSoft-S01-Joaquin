@@ -1,11 +1,39 @@
 ﻿@model Catalogo.Models.Item
 
-<h1>@Model.Titulo</h1>
+<div class="container detalle-container module-reveal">
+    <div class="platillo-wrapper shadow-lg">
+        
+        
+        <div class="platillo-visual">
+            <span>🌮</span>
+        </div>
 
-<p><strong>Género :< /strong> @Model.Genero</p>
-<p><strong>Consola :< /strong> @Model.Consola</p>
-<p><strong>Año :< /strong> @Model.Ano</p>
-<p><strong>Descripción :< /strong> @Model.Descripcion</p>
+        
+        <div class="platillo-info">
+            <header class="platillo-info-header">
+                <span class="tag-categoria">@Model.Categoria</span>
+                <h1 class="titulo-premium">@Model.Platillo</h1>
+                <span class="precio-premium">$@Model.Precio</span>
+            </header>
 
-<hr />
-<a asp-action="Index">&larr; Volver al Catálogo</a>
+            <p class="descripcion-premium">
+                "@Model.Descripcion"
+            </p>
+
+            <div class="ficha-tecnica">
+                <div class="ficha-item">
+                    <label>Ingredientes</label>
+                    <span>@Model.Ingredientes</span>
+                </div>
+                <div class="ficha-item">
+                    <label>Origen</label>
+                    <span>San Pedro Uxmal</span>
+                </div>
+            </div>
+
+            <a asp-action="Index" class="btn-regresar-yerba">
+                Volver al Menú
+            </a>
+        </div>
+    </div>
+</div>

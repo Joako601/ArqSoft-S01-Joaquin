@@ -1,29 +1,43 @@
-﻿namespace Catalogo.Views.Catalogo
+﻿@model IEnumerable<Catalogo.Models.Item>
 
-@model List<Catalogo.Models.Item>
+@{
+    ViewData["Title"] = "Menú";
+}
 
-<h1> Mi catalogo</h1>
+<div class="container py-5">
+    <header class="text-center mb-5 module-reveal">
+        <h1 class="display-2 mb-2" style="font-family: 'Playfair Display', serif; font-style: italic;">
+            Antojitos <span style="font-style: normal; font-weight: 200;">Tía Caro</span>
+        </h1>
+        <p class="text-uppercase small tracking-widest text-muted" style="letter-spacing: 0.3rem;">San Pedro Uxmal • Mérida</p>
+        
+        <div class="mt-4">
+            <a asp-action="Agregar" class="btn-regresar-yerba" style="padding: 0.5rem 1.5rem; font-size: 0.65rem; text-decoration: none;">
+                <i class="bi bi-plus-lg"></i> Integrar nuevo platillo
+            </a>
+        </div>
+    </header>
 
-<div>
-	<a asp-action="Index">Todos</a>
-	@foreach (var gen in ViewBag.Generos as List<string>)
-	{
-		<span> | </span>
-		<a asp-action="Index" asp-route-genero="@gen">@gen</a>
-	}
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            @foreach (var platillo in Model)
+            {
+                <article class="item-module module-reveal">
+                    <div class="item-header">
+                        <h3 class="item-title" style="font-family: 'Playfair Display', serif;">@platillo.Platillo</h3>
+                        <span class="item-price" style="font-family: 'Inter', sans-serif;">$@platillo.Precio</span>
+                    </div>
+                    <p class="item-description" style="font-family: 'Inter', sans-serif;">@platillo.Descripcion</p>
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <div class="item-meta" style="font-family: 'Inter', sans-serif; font-size: 0.7rem; color: var(--yerba-gold); letter-spacing: 0.1rem;">
+                            BASE: @platillo.Ingredientes — @platillo.Categoria
+                        </div>
+                        <a asp-action="Detalle" asp-route-id="@platillo.Id" class="text-dark text-uppercase small fw-bold" style="font-size: 0.7rem; text-decoration: none; border-bottom: 1px solid var(--yerba-gold);">
+                            Ver Experiencia <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+            }
+        </div>
+    </div>
 </div>
-
-<hr />
-
-<ul>
-	@foreach (var item in Model)
-	{
-		<li>
-			<a asp-action="Detalle" asp-route-id="@item.Id">@item.Titulo</a>
-			-- @item.Genero (@item.Ano)
-		</li>
-	}
-</ul>
-
-<hr />
-<a asp-action="Agregar">+ Agregar Videoguego</a>

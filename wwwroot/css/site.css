@@ -1,31 +1,576 @@
-html {
-  font-size: 14px;
-}
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
+:root {
+    --yerba-dark: #1a1a1a; /* Negro mate para elegancia */
+    --yerba-gold: #c5a059; /* Dorado sutil para acentos */
+    --yerba-cream: #f9f7f2; /* Fondo tipo papel artesanal */
+    --yerba-gray: #757575;
+    --transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 body {
-  margin-bottom: 60px;
+    background-color: var(--yerba-cream);
+    color: var(--yerba-dark);
+    font-family: 'Playfair Display', serif; 
+    letter-spacing: 0.02em;
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+/* --- MÓDULOS DE NAVEGACIÓN --- */
+.nav-module {
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding: 2rem 0;
+    margin-bottom: 4rem;
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+.category-link {
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.2rem;
+    color: var(--yerba-gray);
+    transition: var(--transition);
+    padding: 0.5rem 1.5rem;
+    border: 1px solid transparent;
+}
+
+    .category-link.active {
+        color: var(--yerba-dark);
+        border-color: var(--yerba-gold);
+    }
+
+/* --- TARJETAS MODULARES  --- */
+.item-module {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    padding: 2.5rem 0;
+    transition: var(--transition);
+    margin-bottom: 1rem;
+}
+
+    .item-module:hover {
+        padding-left: 20px;
+        background: rgba(197, 160, 89, 0.03);
+    }
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+}
+
+.item-title {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--yerba-dark);
+}
+
+.item-price {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    color: var(--yerba-gold);
+    font-size: 1.3rem;
+}
+
+.item-description {
+    font-family: 'Inter', sans-serif;
+    color: var(--yerba-gray);
+    font-size: 0.95rem;
+    max-width: 80%;
+    line-height: 1.6;
+}
+
+.item-meta {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--yerba-gold);
+    margin-top: 1rem;
+    letter-spacing: 0.1rem;
+}
+
+/* --- ANIMACIONES --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.module-reveal {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+/* --- VISTA DE DETALLE MODULAR  --- */
+.detalle-container {
+    padding: 60px 0;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Contenedor principal asimétrico */
+.platillo-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; 
+    gap: 0;
+    background: transparent;
+    border: none;
+}
+
+/* Bloque Izquierdo  */
+.platillo-visual {
+    background-color: var(--yerba-gold); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 450px;
+    transition: var(--transition);
+}
+
+    .platillo-visual span {
+        font-size: 8rem;
+        filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+    }
+
+/* Bloque Derecho (Información) */
+.platillo-info {
+    padding: 4rem;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid rgba(0,0,0,0.05);
+}
+
+.platillo-info-header {
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+}
+
+.tag-categoria {
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.3rem;
+    color: var(--yerba-gold);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.titulo-premium {
+    font-size: 3.5rem;
+    font-weight: 200;
+    line-height: 1;
+    margin: 0;
+}
+
+.precio-premium {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--yerba-dark);
+    margin-top: 1rem;
+    display: block;
+}
+
+.descripcion-premium {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--yerba-gray);
+    font-style: italic;
+    margin-bottom: 2.5rem;
+}
+
+/* Ficha Técnica Modular */
+.ficha-tecnica {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.ficha-item label {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: var(--yerba-gold);
+    margin-bottom: 0.3rem;
+    font-weight: 700;
+}
+
+.ficha-item span {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Botón Minimalista */
+.btn-regresar-yerba {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border: 1px solid var(--yerba-dark);
+    color: var(--yerba-dark);
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.2rem;
+    text-decoration: none;
+    transition: var(--transition);
+    align-self: flex-start;
+}
+
+    .btn-regresar-yerba:hover {
+        background-color: var(--yerba-dark);
+        color: white;
+    }
+
+/* --- MÓDULO DE FORMULARIO (Agregar Platillo) --- */
+.form-container-premium {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 3rem;
+    background-color: #ffffff;
+    box-shadow: var(--shadow-elegant); 
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.form-title-premium {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 200;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: var(--yerba-dark);
+}
+
+.input-group-premium {
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.label-premium {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    color: var(--yerba-gold);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.input-premium {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding: 0.8rem 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: var(--yerba-dark);
+    background: transparent;
+    transition: var(--transition-smooth);
+}
+
+    .input-premium:focus {
+        outline: none;
+        border-bottom: 1px solid var(--yerba-gold);
+    }
+
+.btn-submit-yerba {
+    width: 100%;
+    background-color: var(--yerba-dark);
+    color: #ffffff;
+    padding: 1.2rem;
+    border: none;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.2rem;
+    margin-top: 2rem;
+    transition: var(--transition-smooth);
+}
+
+    .btn-submit-yerba:hover {
+        background-color: var(--yerba-gold);
+        letter-spacing: 0.3rem;
+    }
+
+/* --- ENLACE CANCELAR MODULAR --- */
+.btn-cancelar-yerba {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    color: var(--yerba-gray);
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.15rem;
+    text-decoration: none;
+    position: relative;
+    padding: 5px 0;
+    transition: var(--transition);
+}
+
+    .btn-cancelar-yerba::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--yerba-gold);
+        transform: scaleX(0);
+        transform-origin: bottom right;
+        transition: transform 0.3s ease-out;
+    }
+
+    .btn-cancelar-yerba:hover {
+        color: var(--yerba-dark);
+    }
+
+        .btn-cancelar-yerba:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+/* Boton principal */
+.btn-yerba {
+    background-color: var(--yerba-dark);
+    color: #ffffff !important;
+    padding: 1.2rem 2.5rem;
+    border: 1px solid var(--yerba-dark);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.2rem;
+    transition: var(--transition);
+    text-decoration: none;
+    display: inline-block;
+}
+
+    .btn-yerba:hover {
+        background-color: transparent;
+        color: var(--yerba-dark) !important;
+        transform: translateY(-3px);
+    }
+
+/* Ajuste de la tipografía de la Navbar */
+.navbar-brand {
+    font-size: 1.5rem !important;
+    transition: var(--transition);
+}
+
+    .navbar-brand:hover {
+        color: var(--yerba-gold) !important;
+    }
+
+/* Suavizado de la animación de entrada */
+.module-reveal {
+    animation: fadeInUp 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+/* --- Tipografía y Títulos --- */
+.welcome-title {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.section-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #1a1a1a;
+}
+
+/* --- Divisores y Decoración --- */
+.divider-gold {
+    width: 40px;
+    height: 1px;
+    background: #b5a478;
+    margin: 20px auto;
+}
+
+.divider-small {
+    width: 30px;
+    margin: 0 auto 15px;
+    border-top: 2px solid #b5a478;
+    opacity: 1;
+}
+
+/* --- Botones del Hero --- */
+.btn-hero-primary {
+    border-radius: 0;
+    padding: 15px 35px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.75rem;
+    background-color: #1a1a1a;
+    color: white;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+    .btn-hero-primary:hover {
+        background-color: #b5a478;
+        transform: translateY(-2px);
+        color: white;
+    }
+
+/* Animación de la línea para "Nuestra Historia" */
+.btn-hero-secondary {
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 15px 25px;
+    letter-spacing: 2px;
+    font-size: 0.75rem;
+    color: #666;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+    .btn-hero-secondary::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 1px;
+        bottom: 10px;
+        left: 25px;
+        background-color: #b5a478;
+        transition: width 0.3s ease;
+    }
+
+    .btn-hero-secondary:hover {
+        color: #b5a478 !important;
+    }
+
+        .btn-hero-secondary:hover::after {
+            width: calc(100% - 50px); 
+        }
+
+/* --- Cards de Platillos --- */
+.img-container {
+    width: 100%;
+    height: 280px;
+    background-color: #e9e9e9;
+    overflow: hidden;
+    position: relative;
+}
+
+    .img-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+    }
+
+.item-card:hover .img-container img {
+    transform: scale(1.1);
+}
+
+.price-tag {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: white;
+    padding: 5px 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.btn-detalle-gold {
+    text-decoration: none;
+    color: #1a1a1a;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #b5a478;
+    padding-bottom: 2px;
+    transition: all 0.3s ease;
+}
+
+    .btn-detalle-gold:hover {
+        color: #b5a478;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+/* --- Keyframes Animaciones --- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card-animate {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.hero-section {
+    padding: 100px 0;
+}
+
+/* --- Estilos para la Página de Historia --- */
+.lead-custom {
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: #1a1a1a !important;
+}
+
+.blockquote-custom {
+    margin-top: 30px;
+    padding-left: 20px;
+    border-left: 2px solid #b5a478;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.4rem;
+    color: #444;
+}
+
+
+.fade-in {
+    animation: fadeIn 1.2s ease-in;
+}
+
+/* Efecto para las imágenes de la historia */
+.img-container.shadow {
+    transition: transform 0.4s ease;
+}
+
+    .img-container.shadow:hover {
+        transform: translateY(-5px);
+    }
+
+.btn-hero-secondary {
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 15px 25px;
+    letter-spacing: 2px;
+    font-size: 0.75rem;
+    color: #666;
+    position: relative;
+    display: inline-block; 
+    transition: color 0.3s ease;
 }

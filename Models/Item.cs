@@ -2,12 +2,11 @@
 {
 	public class Item
 	{
-	public int Id { get; set; }
-	public string Titulo { get; set; }
-	public string Genero { get; set; }
-	public int Ano { get; set; }
-	public string Consola { get; set; }
-	public string Descripcion { get; set; }
-
+		public int Id { get; set; }
+		public string Platillo { get; set; }
+		public string Categoria { get; set; }
+		public decimal Precio { get; set; }
+		public string Ingredientes { get; set; }
+		public string Descripcion { get; set; }
 	}
 }
