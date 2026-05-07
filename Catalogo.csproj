@@ -16,4 +16,10 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.7" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\img\menu\" />
+    <Folder Include="wwwroot\img\galeria\" />
+    <Folder Include="wwwroot\img\branding\" />
+  </ItemGroup>
+
 </Project>

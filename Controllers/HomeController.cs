@@ -6,12 +6,17 @@ namespace Catalogo.Controllers
 {
 	public class HomeController : Controller
 	{
+		private readonly ILogger<HomeController> _logger;
+
+		public HomeController(ILogger<HomeController> _logger)
+		{
+			_logger = _logger;
+		}
+
 		public IActionResult Index()
 		{
-			// Ahora toma los datos de la lista _menu que contiene tus platillos
-			// Usamos TakeLast(3) para que el inicio siempre sea dinámico
+			// Mantenemos tus 3 platillos dinámicos para el inicio
 			var itemsParaHome = CatalogoController._menu.TakeLast(3).ToList();
-
 			return View(itemsParaHome);
 		}
 
@@ -24,17 +29,6 @@ namespace Catalogo.Controllers
 		public IActionResult Error()
 		{
 			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-		}
-
-		public IActionResult Historia()
-		{
-			// Esta vista es principalmente informativa, así que no requiere un modelo complejo por ahora.
-			return View();
-		}
-
-		public IActionResult Ubicacion()
-		{
-			return View();
 		}
 	}
 }

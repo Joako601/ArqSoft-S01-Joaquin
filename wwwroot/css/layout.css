@@ -1,0 +1,28 @@
+﻿body {
+	background-color: var(--yerba-cream) !important;
+	color: var(--yerba-dark);
+	font-family: 'Playfair Display', serif;
+	letter-spacing: 0.02em;
+}
+
+/* Efecto dorado en el Header */
+.navbar-brand:hover,
+.nav-link:hover {
+	color: var(--yerba-gold) !important;
+	transition: var(--transition-smooth);
+}
+
+/* Limpieza de enlaces en el Footer */
+footer a {
+	text-decoration: none !important;
+	color: rgba(255, 255, 255, 0.6) !important; /* Adiós al azul de link */
+	transition: var(--transition-smooth);
+}
+
+	footer a:hover {
+		color: var(--yerba-gold) !important;
+	}
+
+footer h3, footer h5 {
+	color: var(--yerba-gold);
+}

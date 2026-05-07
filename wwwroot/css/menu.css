@@ -1,0 +1,134 @@
+﻿/* --- SECCIÓN PRINCIPAL --- */
+.menu-section {
+	padding: 100px 0;
+	background-color: var(--yerba-cream);
+}
+
+.menu-header {
+	margin-bottom: 100px;
+}
+
+.menu-title {
+	font-family: 'Playfair Display', serif !important;
+	font-size: 5rem;
+	font-weight: 200;
+	font-style: italic;
+	letter-spacing: -1px;
+	color: var(--yerba-dark);
+}
+
+/* --- BOTÓN INTEGRAR (ADMIN) --- */
+.btn-add-platillo {
+	font-family: 'Inter', sans-serif;
+	font-size: 0.65rem;
+	text-transform: uppercase;
+	letter-spacing: 0.3rem;
+	color: var(--yerba-gold);
+	text-decoration: none;
+	border-bottom: 1px solid transparent;
+	transition: var(--transition-smooth);
+}
+
+	.btn-add-platillo:hover {
+		border-bottom: 1px solid var(--yerba-gold);
+		color: var(--yerba-dark);
+	}
+
+/* --- LISTA EDITORIAL DE PLATILLOS --- */
+.item-module {
+	padding: 3rem 0;
+	border-bottom: 1px solid rgba(0,0,0,0.05);
+	transition: var(--transition);
+}
+
+	.item-module:hover {
+		background-color: rgba(255,255,255,0.5);
+		padding-left: 30px;
+	}
+
+.item-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+}
+
+.item-title {
+	font-family: 'Playfair Display', serif !important;
+	font-size: 2.2rem;
+	font-weight: 400;
+	color: var(--yerba-dark);
+	margin: 0;
+}
+
+.item-price {
+	font-family: 'Inter', sans-serif;
+	font-size: 1.2rem;
+	font-weight: 300;
+	color: var(--yerba-gold);
+	letter-spacing: 1px;
+}
+
+.item-description {
+	font-family: 'Inter', sans-serif;
+	font-size: 0.9rem;
+	font-weight: 300;
+	color: var(--yerba-gray);
+	line-height: 2;
+	max-width: 600px;
+	margin-top: 10px;
+}
+
+.item-meta {
+	font-family: 'Inter', sans-serif;
+	font-size: 0.6rem;
+	text-transform: uppercase;
+	letter-spacing: 0.25rem;
+	color: var(--yerba-gold-light);
+	margin-top: 15px;
+}
+
+/* --- BOTÓN VER EXPERIENCIA (ESTILO LUXURY) --- */
+.btn-ver-experiencia {
+	font-family: 'Inter', sans-serif;
+	font-size: 0.65rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.2rem;
+	color: var(--yerba-dark) !important;
+	text-decoration: none !important;
+	position: relative;
+	padding-bottom: 5px;
+}
+
+	.btn-ver-experiencia::after {
+		content: '';
+		position: absolute;
+		width: 20px;
+		height: 1px;
+		background-color: var(--yerba-gold);
+		bottom: 0;
+		left: 0;
+		transition: width 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+	}
+
+	.btn-ver-experiencia:hover::after {
+		width: 100%;
+	}
+
+/* --- ANIMACIONES --- */
+.module-reveal {
+	opacity: 0;
+	animation: fadeInUp 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(40px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}

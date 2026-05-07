@@ -3,6 +3,10 @@
 @{
     ViewData["Title"] = "Inicio - Tía Caro";
 }
+@section Styles {
+    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
+}
+
 
 
 <div class="container-fluid bg-white hero-section">
@@ -22,13 +26,13 @@
             <a asp-controller="Catalogo" asp-action="Index" class="btn btn-hero-primary">
                 Explorar el Menú
             </a>
-            <a asp-controller="Home" asp-action="Historia" class="btn btn-hero-secondary">
+           
+            <a asp-controller="Info" asp-action="Historia" class="btn btn-hero-secondary">
                 Nuestra Historia
             </a>
         </div>
     </div>
 </div>
-
 
 <section class="py-5" style="background-color: #faf9f6;">
     <div class="container py-4">
@@ -47,7 +51,6 @@
                     <div class="col-md-4 card-animate" style="animation-delay: @(delay * 0.2)s">
                         <div class="card h-100 border-0 bg-transparent text-center item-card">
                             <div class="img-container shadow-sm mb-4">
-                                
                                 <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=600&auto=format&fit=crop"
                                      alt="@item.Platillo" class="img-fluid">
                                 <div class="price-tag">$@item.Precio</div>
@@ -78,9 +81,9 @@
             }
         </div>
 
-        
         <div class="text-center mt-5 pt-4">
-            <a asp-controller="Home" asp-action="Ubicacion" class="btn btn-outline-dark rounded-0 px-4 py-2 text-uppercase" style="letter-spacing: 2px; font-size: 0.7rem;">
+            
+            <a asp-controller="Info" asp-action="Ubicacion" class="btn btn-outline-dark rounded-0 px-4 py-2 text-uppercase" style="letter-spacing: 2px; font-size: 0.7rem;">
                 ¿Cómo llegar a San Pedro Uxmal?
             </a>
         </div>

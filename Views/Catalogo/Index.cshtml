@@ -4,6 +4,10 @@
     ViewData["Title"] = "Menú";
 }
 
+@section Styles {
+    <link rel="stylesheet" href="~/css/menu.css" asp-append-version="true" />
+}
+
 <div class="container py-5">
     <header class="text-center mb-5 module-reveal">
         <h1 class="display-2 mb-2" style="font-family: 'Playfair Display', serif; font-style: italic;">
@@ -12,7 +16,7 @@
         <p class="text-uppercase small tracking-widest text-muted" style="letter-spacing: 0.3rem;">San Pedro Uxmal • Mérida</p>
         
         <div class="mt-4">
-            <a asp-action="Agregar" class="btn-regresar-yerba" style="padding: 0.5rem 1.5rem; font-size: 0.65rem; text-decoration: none;">
+            <a asp-action="Agregar" class="btn-add-platillo">
                 <i class="bi bi-plus-lg"></i> Integrar nuevo platillo
             </a>
         </div>
@@ -24,15 +28,15 @@
             {
                 <article class="item-module module-reveal">
                     <div class="item-header">
-                        <h3 class="item-title" style="font-family: 'Playfair Display', serif;">@platillo.Platillo</h3>
-                        <span class="item-price" style="font-family: 'Inter', sans-serif;">$@platillo.Precio</span>
+                        <h3 class="item-title">@platillo.Platillo</h3>
+                        <span class="item-price">$@platillo.Precio</span>
                     </div>
-                    <p class="item-description" style="font-family: 'Inter', sans-serif;">@platillo.Descripcion</p>
+                    <p class="item-description">@platillo.Descripcion</p>
                     <div class="d-flex justify-content-between align-items-center mt-3">
-                        <div class="item-meta" style="font-family: 'Inter', sans-serif; font-size: 0.7rem; color: var(--yerba-gold); letter-spacing: 0.1rem;">
+                        <div class="item-meta">
                             BASE: @platillo.Ingredientes — @platillo.Categoria
                         </div>
-                        <a asp-action="Detalle" asp-route-id="@platillo.Id" class="text-dark text-uppercase small fw-bold" style="font-size: 0.7rem; text-decoration: none; border-bottom: 1px solid var(--yerba-gold);">
+                        <a asp-action="Detalle" asp-route-id="@platillo.Id" class="btn-ver-experiencia">
                             Ver Experiencia <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>
