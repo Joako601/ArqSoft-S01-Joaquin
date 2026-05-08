@@ -29,7 +29,7 @@ Este repositorio contiene el código fuente de **Antojitos de la Tía Caro**, un
 | ![Sugerencias](./screenshots/sugerencias.png) | ![Ubicacion](./screenshots/ubicacion.png) |
 
 > [!IMPORTANT]
-> Las imágenes reflejan la implementación final de la interfaz de usuario, respetando la paleta de colores y la tipografía editorial seleccionada.
+> **Nota de diseño:** La interfaz fue construida buscando un equilibrio entre la elegancia editorial y la calidez de la gastronomía yucateca, priorizando siempre la fluidez visual.
 
 ---
 
