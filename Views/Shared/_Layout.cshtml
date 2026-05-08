@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Tía Caro</title>
 
+    <link rel="icon" type="image/png" href="~/img/logo.png">
+
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Montserrat:wght@300;400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
@@ -14,7 +16,6 @@
     <link rel="stylesheet" href="~/css/layout.css" asp-append-version="true" />
     @RenderSection("Styles", required: false)
     
-    @* Mantenemos site.css al final solo por si tienes algo extra ahí *@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
@@ -22,7 +23,11 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom py-3">
             <div class="container-fluid px-5">
-                <a class="navbar-brand" asp-controller="Home" asp-action="Index">TÍA CARO</a>
+                
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                    <img src="~/img/logo.png" alt="Tía Caro Logo" style="height: 45px; width: auto;">
+                </a>
+
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
                     <ul class="navbar-nav text-uppercase" style="font-size: 0.75rem; letter-spacing: 2px; font-weight: 600;">
                         <li class="nav-item"><a class="nav-link text-dark px-3" asp-controller="Home" asp-action="Index">Inicio</a></li>
