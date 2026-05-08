@@ -3,20 +3,22 @@
 @{
     ViewData["Title"] = "Inicio - Tía Caro";
 }
+
 @section Styles {
     <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
 }
 
-
-
-<div class="container-fluid bg-white hero-section">
-    <div class="text-center">
-        <p class="text-uppercase mb-2 reveal-text" style="letter-spacing: 5px; color: #b5a478; font-size: 0.9rem;">
-            Tradición Yucateca
+<div class="hero-container">
+    <div class="hero-overlay-box text-center">
+        <p class="text-uppercase mb-2 reveal-text" style="letter-spacing: 5px; color: #b5a478; font-size: 1.8rem; font-weight: bold;">
+            Bienvenido
         </p>
-        <h1 class="display-1 welcome-title">Bienvenido</h1>
         
-        <div class="divider-gold"></div>
+        <h1 class="display-4 welcome-title" style="color: #222; font-weight: 600; font-size: 3rem;">
+            Tradición Yucateca
+        </h1>
+        
+        <div class="divider-gold mx-auto my-4"></div>
         
         <p class="text-uppercase mb-5 location-text" style="letter-spacing: 3px; color: #666; font-size: 0.85rem;">
             Antojitos • San Pedro Uxmal
@@ -26,7 +28,6 @@
             <a asp-controller="Catalogo" asp-action="Index" class="btn btn-hero-primary">
                 Explorar el Menú
             </a>
-           
             <a asp-controller="Info" asp-action="Historia" class="btn btn-hero-secondary">
                 Nuestra Historia
             </a>
@@ -34,58 +35,73 @@
     </div>
 </div>
 
-<section class="py-5" style="background-color: #faf9f6;">
-    <div class="container py-4">
-        <div class="text-center mb-5">
-            <hr class="divider-small">
-            <h2 class="section-subtitle">Sugerencias del Día</h2>
-            <p class="text-muted small">Lo más reciente de nuestra cocina en Mérida</p>
-        </div>
+<section class="bg-white">
+    <div class="container py-5 text-center">
+        <hr class="divider-small">
+        <h2 class="section-subtitle" style="font-family: 'Playfair Display', serif; color: #222; font-size: 2.5rem;">Sugerencias del Día</h2>
+        <p class="text-muted small" style="letter-spacing: 2px; text-transform: uppercase;">Lo más reciente de nuestra cocina en Mérida</p>
+    </div>
 
-        <div class="row g-4 justify-content-center">
-            @if (Model != null && Model.Any())
+    <div class="container-fluid px-0">
+        @if (Model != null && Model.Any())
+        {
+            int index = 0;
+            foreach (var item in Model)
             {
-                int delay = 1;
-                foreach (var item in Model)
-                {
-                    <div class="col-md-4 card-animate" style="animation-delay: @(delay * 0.2)s">
-                        <div class="card h-100 border-0 bg-transparent text-center item-card">
-                            <div class="img-container shadow-sm mb-4">
-                                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=600&auto=format&fit=crop"
-                                     alt="@item.Platillo" class="img-fluid">
-                                <div class="price-tag">$@item.Precio</div>
-                            </div>
+                bool isEven = index % 2 == 0;
+                
+                <div class="row g-0 fade-in-up">
+                    
+                    <div class="col-md-6 @(isEven ? "order-md-1" : "order-md-2")">
+                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1000&auto=format&fit=crop"
+                             alt="@item.Platillo"
+                             class="img-fluid w-100"
+                             style="height: 450px; object-fit: cover;">
+                    </div>
+                    
+                    <div class="col-md-6 @(isEven ? "order-md-2" : "order-md-1") d-flex align-items-center">
+                        <div class="p-5 p-md-5 mx-auto" style="max-width: 500px;">
                             
-                            <div class="card-body p-0">
-                                <span class="category-label" style="color: #b5a478; font-size: 0.65rem; letter-spacing: 2px; font-weight: bold; text-transform: uppercase;">
+                            <h3 style="color: #222; font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 0.5rem; border-bottom: 2px solid #b5a478; display: inline-block; padding-bottom: 5px;">
+                                @item.Platillo
+                            </h3>
+                            
+                            <div class="mt-3 mb-3">
+                                <span style="color: #b5a478; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">
                                     @item.Categoria
                                 </span>
-                                <h4 class="platillo-name" style="font-family: 'Playfair Display', serif; margin-top: 10px;">@item.Platillo</h4>
-                                <p class="text-muted small px-4 mb-3">@item.Descripcion</p>
-                                
-                                <a asp-controller="Catalogo" asp-action="Detalle" asp-route-id="@item.Id"
-                                       class="btn-detalle-gold">
-                                    Ver Detalle
-                                </a>
+                                <span class="mx-2 text-muted">|</span>
+                                <span style="font-weight: bold; font-size: 1.1rem; color: #222;">
+                                    $@item.Precio
+                                </span>
                             </div>
+
+                            <p class="text-muted mb-4" style="line-height: 1.8; font-family: 'Inter', sans-serif;">
+                                @item.Descripcion
+                            </p>
+                            
+                            <a asp-controller="Catalogo" asp-action="Detalle" asp-route-id="@item.Id"
+                                   class="btn btn-ver-detalle rounded-0 px-4 py-2 text-uppercase">
+                                Ver Detalle
+                            </a>
                         </div>
                     </div>
-                    delay++;
-                }
-            }
-            else
-            {
-                <div class="col-12 text-center">
-                    <p class="text-muted italic">Preparando las delicias del día...</p>
                 </div>
+                
+                index++;
             }
-        </div>
+        }
+        else
+        {
+            <div class="col-12 text-center py-5">
+                <p class="text-muted italic">Preparando las delicias del día...</p>
+            </div>
+        }
+    </div>
 
-        <div class="text-center mt-5 pt-4">
-            
-            <a asp-controller="Info" asp-action="Ubicacion" class="btn btn-outline-dark rounded-0 px-4 py-2 text-uppercase" style="letter-spacing: 2px; font-size: 0.7rem;">
-                ¿Cómo llegar a San Pedro Uxmal?
-            </a>
-        </div>
+    <div class="text-center py-5" style="background-color: #faf9f6;">
+        <a asp-controller="Info" asp-action="Ubicacion" class="btn btn-outline-dark rounded-0 px-4 py-2 text-uppercase" style="letter-spacing: 2px; font-size: 0.7rem;">
+            ¿Cómo llegar a San Pedro Uxmal?
+        </a>
     </div>
 </section>

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Catalogo.Controllers
 {
-	public class GaleriaController : Controller
+	public class NosotrosController : Controller
 	{
 		public IActionResult Index()
 		{

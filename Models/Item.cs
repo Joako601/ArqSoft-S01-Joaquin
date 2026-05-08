@@ -8,5 +8,6 @@
 		public decimal Precio { get; set; }
 		public string Ingredientes { get; set; }
 		public string Descripcion { get; set; }
+		public string Base { get; set; }
 	}
 }

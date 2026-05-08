@@ -10,11 +10,9 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-   
     <link rel="stylesheet" href="~/css/variables.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/layout.css" asp-append-version="true" />
     @RenderSection("Styles", required: false)
-    
     
     @* Mantenemos site.css al final solo por si tienes algo extra ahí *@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -30,7 +28,7 @@
                         <li class="nav-item"><a class="nav-link text-dark px-3" asp-controller="Home" asp-action="Index">Inicio</a></li>
                         <li class="nav-item"><a class="nav-link text-dark px-3" asp-controller="Catalogo" asp-action="Index">Menú</a></li>
                         <li class="nav-item"><a class="nav-link text-dark px-3" asp-controller="Info" asp-action="Ubicacion">Ubicación</a></li>
-                        <li class="nav-item"><a class="nav-link text-dark px-3" asp-controller="Galeria" asp-action="Index">Galería</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark px-3" asp-controller="Nosotros" asp-action="Index">Quienes somos</a></li>
                     </ul>
                 </div>
             </div>
@@ -41,34 +39,37 @@
         @RenderBody()
     </main>
 
-    <footer class="bg-dark text-white">
-        <div class="container py-5">
+    <footer class="main-footer">
+        <div class="container">
             <div class="row">
-                <div class="col-md-4">
-                    <h3 class="mb-3">TÍA CARO</h3>
-                    <p class="small opacity-50">Tradición yucateca en San Pedro Uxmal.</p>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-title">TÍA CARO</h5>
+                    <p class="footer-text">Tradición yucateca en San Pedro Uxmal.</p>
                 </div>
-                <div class="col-md-4 text-center">
-                    <h5 class="mb-4 text-uppercase" style="letter-spacing: 2px;">Explora</h5>
+
+                <div class="col-md-4 text-md-center mb-4 mb-md-0">
+                    <h5 class="footer-title">EXPLORA</h5>
                     <ul class="list-unstyled">
                         <li><a asp-controller="Catalogo" asp-action="Index" class="footer-link">Menú</a></li>
                         <li><a asp-controller="Info" asp-action="Ubicacion" class="footer-link">Ubicación</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4 text-end">
-                    <h5 class="mb-4 text-uppercase" style="letter-spacing: 2px;">Redes</h5>
-                    <div class="d-flex justify-content-end gap-3">
-                        <a href="#" class="text-white"><i class="bi bi-instagram fs-5"></i></a>
-                        <a href="#" class="text-white"><i class="bi bi-facebook fs-5"></i></a>
+
+                <div class="col-md-4 text-md-end">
+                    <h5 class="footer-title">REDES</h5>
+                    <div class="footer-socials">
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-facebook"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
 
-    @await RenderSectionAsync("Scripts", required: false)    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

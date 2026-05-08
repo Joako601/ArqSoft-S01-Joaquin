@@ -162,3 +162,91 @@
         transform: translateY(0);
     }
 }
+
+/* --- Botones de Filtro Minimalistas --- */
+.menu-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background-color: transparent;
+    border: none;
+    color: #888;
+    padding: 5px 10px;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+}
+
+    /* Efecto hover minimalista */
+    .filter-btn:hover, .filter-btn.active {
+        color: #222;
+        border-bottom: 2px solid #b5a478;
+    }
+
+/* --- Transición para el filtrado JS --- */
+.menu-item-card {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Efecto hover en el enlace de ver experiencia */
+.ver-experiencia-link:hover {
+    opacity: 0.7;
+}
+/* Estilo base del enlace (Color negro fijo) */
+.ver-experiencia-link {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 6px;
+    display: inline-block;
+    color: #222 !important; /* Forzamos el negro para que no cambie */
+    transition: none; /* Quitamos transición al texto para que sea instantáneo */
+}
+
+    /* La primera línea (Fija - Base) */
+    .ver-experiencia-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1.5px;
+        background-color: #b5a478;
+    }
+
+    /* La segunda línea (Animada - Superior) */
+    .ver-experiencia-link::before {
+        content: '';
+        position: absolute;
+        bottom: 4px;
+        left: 0;
+        width: 100%;
+        height: 1.5px;
+        background-color: #b5a478;
+        /* Estado inicial: invisible a la izquierda */
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Animación: Solo afecta a la línea ::before */
+    .ver-experiencia-link:hover::before {
+        transform: scaleX(1);
+    }
+
+    /* Quitamos cualquier efecto de opacidad o cambio de color en el hover global */
+    .ver-experiencia-link:hover {
+        color: #222 !important;
+        text-decoration: none;
+        opacity: 1 !important;
+    }
