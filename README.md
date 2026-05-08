@@ -20,9 +20,16 @@ Este repositorio contiene el código fuente de **Antojitos de la Tía Caro**, un
 ### 📸 Capturas de Pantalla
 > **Nota:** Aquí puedes ver la interfaz principal y las secciones clave de la plataforma.
 
-| Home / Bienvenida | Catálogo Editorial |
-|---|---|
-| ![Home Screen](./screenshots/home.png) | ![Menu Screen](./screenshots/menu.png) |
+### 📸 Vista Previa de la Plataforma
+
+| Home / Bienvenida | Menú / Catálogo |
+| :---: | :---: |
+| ![Home](./screenshots/home.png) | ![Menu](./screenshots/menu.png) |
+| **Sugerencias del dia** | **Ubicación y Contacto** |
+| ![Sugerencias](./screenshots/sugerencias.png) | ![Ubicacion](./screenshots/ubicacion.png) |
+
+> [!IMPORTANT]
+> Las imágenes reflejan la implementación final de la interfaz de usuario, respetando la paleta de colores y la tipografía editorial seleccionada.
 
 ---
 
