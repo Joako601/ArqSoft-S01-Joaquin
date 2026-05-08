@@ -8,7 +8,6 @@
 - **Cuatrimestre:** Tercer Cuatrimestre
 - **Carrera:** TSU en Desarrollo e Innovación de Software
 - **Profesor:** Jorge Javier Pedrozo Romero
-
 ---
 
 ## 📋 Descripción del Proyecto
