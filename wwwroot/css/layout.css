@@ -1,4 +1,5 @@
-﻿body {
+﻿/* --- TUS ESTILOS ORIGINALES (NO TOCAR) --- */
+body {
 	background-color: var(--yerba-cream) !important;
 	color: var(--yerba-dark);
 	font-family: 'Playfair Display', serif;
@@ -15,7 +16,7 @@
 /* Limpieza de enlaces en el Footer */
 footer a {
 	text-decoration: none !important;
-	color: rgba(255, 255, 255, 0.6) !important; /* Adiós al azul de link */
+	color: rgba(255, 255, 255, 0.6) !important;
 	transition: var(--transition-smooth);
 }
 
@@ -25,4 +26,30 @@ footer a {
 
 footer h3, footer h5 {
 	color: var(--yerba-gold);
+}
+
+/* --- LÓGICA DE REVELADO PARA JS (LO NUEVO) --- */
+
+/* Solo ocultamos si el navegador soporta animaciones */
+@supports (opacity: 0) {
+	.module-reveal {
+		opacity: 0;
+		transform: translateY(30px);
+		transition: opacity 1.2s cubic-bezier(0.2, 1, 0.3, 1), transform 1.2s cubic-bezier(0.2, 1, 0.3, 1);
+		visibility: hidden; /* Evita clics en elementos invisibles */
+	}
+
+		.module-reveal.active {
+			opacity: 1 !important;
+			transform: translateY(0) !important;
+			visibility: visible !important;
+		}
+}
+
+/* Estilo para el Navbar al bajar scroll (Glassmorphism) */
+.navbar.navbar-scrolled {
+	background-color: rgba(255, 255, 255, 0.95) !important;
+	backdrop-filter: blur(10px);
+	box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+	padding: 10px 0;
 }

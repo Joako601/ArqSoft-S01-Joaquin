@@ -1,55 +1,33 @@
-﻿@model IEnumerable<Catalogo.Models.GaleriaItem>
+﻿<section class="gallery-section">
+    <div class="container">
+        <header class="gallery-header module-reveal">
+            <h1 class="gallery-title">Visuales</h1>
+            <p class="gallery-subtitle">La esencia de Tía Caro en cada detalle</p>
+        </header>
 
-@{
-    ViewData["Title"] = "Galería - Tía Caro";
-}
-
-<div class="container py-5">
-    <div class="text-center mb-5 fade-in">
-        <p class="text-uppercase mb-2" style="letter-spacing: 5px; color: #b5a478; font-size: 0.8rem;">Momentos</p>
-        <h1 class="display-4" style="font-family: 'Playfair Display', serif;">Nuestra Galería</h1>
-        <div class="divider-gold mx-auto" style="width: 50px; height: 1px; background: #b5a478; margin-top: 20px;"></div>
-    </div>
-
-    <!-- Filtros simples (Estética) -->
-    <div class="d-flex justify-content-center gap-3 mb-5">
-        <span class="badge rounded-pill bg-dark px-3 py-2">Todo</span>
-        <span class="badge rounded-pill border text-dark px-3 py-2">Platillos</span>
-        <span class="badge rounded-pill border text-dark px-3 py-2">Local</span>
-    </div>
-
-    <div class="row g-4">
-        @foreach (var foto in Model)
-        {
-            <div class="col-md-4">
-                <div class="gallery-card border-0 shadow-sm overflow-hidden position-relative">
-                    <img src="@foto.Url" class="img-fluid w-100" style="height: 300px; object-fit: cover; transition: 0.5s;" alt="@foto.Titulo">
-                    <div class="gallery-info p-3">
-                        <small class="text-uppercase" style="color: #b5a478; font-size: 0.7rem; font-weight: bold;">@foto.Categoria</small>
-                        <h5 class="h6 m-0 text-white">@foto.Titulo</h5>
-                    </div>
+        <div class="gallery-grid">
+            
+            <article class="gallery-item module-reveal">
+                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=600&auto=format&fit=crop" alt="Alta cocina">
+                <div class="gallery-overlay">
+                    <span class="overlay-text">Arte Culinario</span>
                 </div>
-            </div>
-        }
+            </article>
+
+            <article class="gallery-item module-reveal">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=600&auto=format&fit=crop" alt="Interior elegante">
+                <div class="gallery-overlay">
+                    <span class="overlay-text">Nuestros Espacios</span>
+                </div>
+            </article>
+
+            <article class="gallery-item module-reveal">
+                <img src="https://images.unsplash.com/photo-1556910103-1c02745a872f?q=80&w=600&auto=format&fit=crop" alt="Ingredientes">
+                <div class="gallery-overlay">
+                    <span class="overlay-text">Ingredientes Frescos</span>
+                </div>
+            </article>
+
+        </div>
     </div>
-</div>
-
-<style>
-    .gallery-card img:hover {
-        transform: scale(1.1);
-    }
-
-    .gallery-info {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: linear-gradient(transparent, rgba(0,0,0,0.8));
-        opacity: 0;
-        transition: 0.4s;
-    }
-
-    .gallery-card:hover .gallery-info {
-        opacity: 1;
-    }
-</style>
+</section>

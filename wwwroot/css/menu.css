@@ -1,134 +1,164 @@
 ﻿/* --- SECCIÓN PRINCIPAL --- */
 .menu-section {
-	padding: 100px 0;
-	background-color: var(--yerba-cream);
+    padding: 100px 0;
+    background-color: var(--yerba-cream);
 }
 
 .menu-header {
-	margin-bottom: 100px;
+    margin-bottom: 100px;
+    text-align: center;
 }
 
 .menu-title {
-	font-family: 'Playfair Display', serif !important;
-	font-size: 5rem;
-	font-weight: 200;
-	font-style: italic;
-	letter-spacing: -1px;
-	color: var(--yerba-dark);
+    font-family: 'Playfair Display', serif !important;
+    font-size: 5rem;
+    font-weight: 200;
+    font-style: italic;
+    letter-spacing: -1px;
+    color: var(--yerba-dark);
 }
 
 /* --- BOTÓN INTEGRAR (ADMIN) --- */
 .btn-add-platillo {
-	font-family: 'Inter', sans-serif;
-	font-size: 0.65rem;
-	text-transform: uppercase;
-	letter-spacing: 0.3rem;
-	color: var(--yerba-gold);
-	text-decoration: none;
-	border-bottom: 1px solid transparent;
-	transition: var(--transition-smooth);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+    color: var(--yerba-gold);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: var(--transition-smooth);
+    display: inline-block;
+    margin-top: 20px;
 }
 
-	.btn-add-platillo:hover {
-		border-bottom: 1px solid var(--yerba-gold);
-		color: var(--yerba-dark);
-	}
+    .btn-add-platillo:hover {
+        border-bottom: 1px solid var(--yerba-gold);
+        color: var(--yerba-dark);
+    }
 
-/* --- LISTA EDITORIAL DE PLATILLOS --- */
+/* --- LISTA EDITORIAL DE PLATILLOS (CARTAS SUTILES) --- */
 .item-module {
-	padding: 3rem 0;
-	border-bottom: 1px solid rgba(0,0,0,0.05);
-	transition: var(--transition);
+    padding: 3.5rem 5rem;
+    /* 1. Contraste base: Un fondo blanco muy suave para que no flote en el vacío */
+    background-color: rgba(255, 255, 255, 0.4);
+    /* 2. Estructura: Un borde casi imperceptible que define la carta */
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    /* 3. Separación: Margen inferior para que se vean como bloques independientes */
+    margin: 0 auto 30px auto;
+    max-width: 900px;
+    transition: all 0.5s ease;
 }
 
-	.item-module:hover {
-		background-color: rgba(255,255,255,0.5);
-		padding-left: 30px;
-	}
+    .item-module:hover {
+        /* Al pasar el mouse, la carta se vuelve más blanca y sólida */
+        background-color: rgba(255, 255, 255, 0.95);
+        /* Una sombra levísima para dar profundidad */
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.04);
+        /* Un levantamiento vertical milimétrico (mucho más elegante que el lateral) */
+        transform: translateY(-3px);
+        border-color: rgba(0, 0, 0, 0.06);
+    }
 
+/* --- CONTENIDO DEL PLATILLO --- */
 .item-header {
-	display: flex;
-	justify-content: space-between;
-	align-items: baseline;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
 }
 
 .item-title {
-	font-family: 'Playfair Display', serif !important;
-	font-size: 2.2rem;
-	font-weight: 400;
-	color: var(--yerba-dark);
-	margin: 0;
+    font-family: 'Playfair Display', serif !important;
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--yerba-dark);
+    margin: 0;
+    transition: color 0.4s ease;
+}
+
+.item-module:hover .item-title {
+    color: var(--yerba-gold);
 }
 
 .item-price {
-	font-family: 'Inter', sans-serif;
-	font-size: 1.2rem;
-	font-weight: 300;
-	color: var(--yerba-gold);
-	letter-spacing: 1px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: var(--yerba-gold);
+    letter-spacing: 1px;
 }
 
 .item-description {
-	font-family: 'Inter', sans-serif;
-	font-size: 0.9rem;
-	font-weight: 300;
-	color: var(--yerba-gray);
-	line-height: 2;
-	max-width: 600px;
-	margin-top: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: var(--yerba-gray);
+    line-height: 2;
+    max-width: 100%;
+    margin-top: 10px;
 }
 
 .item-meta {
-	font-family: 'Inter', sans-serif;
-	font-size: 0.6rem;
-	text-transform: uppercase;
-	letter-spacing: 0.25rem;
-	color: var(--yerba-gold-light);
-	margin-top: 15px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.25rem;
+    color: var(--yerba-gold-light);
+    margin-top: 15px;
+    display: block;
 }
 
-/* --- BOTÓN VER EXPERIENCIA (ESTILO LUXURY) --- */
+/* --- BOTÓN VER EXPERIENCIA --- */
 .btn-ver-experiencia {
-	font-family: 'Inter', sans-serif;
-	font-size: 0.65rem;
-	font-weight: 600;
-	text-transform: uppercase;
-	letter-spacing: 0.2rem;
-	color: var(--yerba-dark) !important;
-	text-decoration: none !important;
-	position: relative;
-	padding-bottom: 5px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    color: var(--yerba-dark) !important;
+    text-decoration: none !important;
+    position: relative;
+    padding-bottom: 5px;
+    display: inline-block;
+    margin-top: 20px;
 }
 
-	.btn-ver-experiencia::after {
-		content: '';
-		position: absolute;
-		width: 20px;
-		height: 1px;
-		background-color: var(--yerba-gold);
-		bottom: 0;
-		left: 0;
-		transition: width 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-	}
+    .btn-ver-experiencia::after {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 1px;
+        background-color: var(--yerba-gold);
+        bottom: 0;
+        left: 0;
+        transition: width 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    }
 
-	.btn-ver-experiencia:hover::after {
-		width: 100%;
-	}
+.item-module:hover .btn-ver-experiencia::after {
+    width: 100%;
+}
 
-/* --- ANIMACIONES --- */
+.item-module:hover .btn-ver-experiencia {
+    color: var(--yerba-gold) !important;
+}
+
+/* --- ANIMACIONES DE ENTRADA AL SCROLLEAR --- */
 .module-reveal {
-	opacity: 0;
-	animation: fadeInUp 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    opacity: 0;
+    animation: fadeInUp 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
 }
 
 @keyframes fadeInUp {
-	from {
-		opacity: 0;
-		transform: translateY(40px);
-	}
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
 
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
