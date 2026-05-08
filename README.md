@@ -137,6 +137,14 @@ Consulta el archivo `LICENSE` para más detalles.
 
 ---
 
+## 🤖 Declaración de Uso de IA
+
+Este proyecto integra asistencia de Inteligencia Artificial **exclusivamente para el apartado visual**, incluyendo el refinamiento de estilos CSS, la generación de paletas de colores y la optimización de la maquetación estética. 
+
+La **arquitectura del sistema (MVC)**, la lógica de los controladores en C#, la estructuración de las vistas Razor y el flujo de trabajo del repositorio fueron desarrollados íntegramente de forma manual, utilizando la IA como una herramienta complementaria de diseño y documentación.
+
+---
+
 <div align="center">
 
 **⭐ Si te gustó este proyecto, dale una estrella ⭐**
